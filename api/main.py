@@ -1,4 +1,5 @@
 
+
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
@@ -21,13 +22,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODEL = tf.keras.models.load_model("../saved_models/1")
+try:
+    MODEL = tf.keras.models.load_model("../Models/1")
+except Exception as e:
+    print(f"Error loading the model: {str(e)}")
+
 
 CLASS_NAMES = ["Early Blight", "Late Blight", "Healthy"]
 
 @app.get("/ping")
 async def ping():
-    return "server is working and alive"
+    return "Hello, I am alive"
 
 def read_file_as_image(data) -> np.ndarray:
     image = np.array(Image.open(BytesIO(data)))
@@ -50,4 +55,5 @@ async def predict(
     }
 
 if __name__ == "__main__":
-    uvicorn.run(app, host='localhost', port=8000)
+    uvicorn.run(app, host='localhost', port=3000)
+
