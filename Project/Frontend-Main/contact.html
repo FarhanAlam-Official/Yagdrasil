@@ -8,16 +8,37 @@
     <title>Contact Crop Recognition System</title>
     <style>
         body {
+            background-image: url(/Project/Assets/Background_for_contact.jpg);
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
         }
 
+        .glass-container {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            margin-left: 60%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
         header {
-            background-color: #0e7d10;
-            color: white;
-            padding: 1em;
+            background-color: whitesmoke;
+            box-shadow: 10px 8px 10px black;
+            opacity: .8;
+            height: 50px;
+            color: rgb(0, 0, 0);
+            box-shadow: #0b0c0c;
+            padding-top: 1px;
+            padding-bottom: 20px;
             text-align: center;
         }
 
@@ -35,6 +56,7 @@
 
         form {
             display: grid;
+            color: #0b0c0c;
             gap: 1em;
         }
 
@@ -51,7 +73,7 @@
 
         button {
             padding: 0.5em 1em;
-            background-color:#0b0c0c;
+            background-color: #0b0c0c;
             color: white;
             border: none;
             cursor: pointer;
@@ -59,7 +81,9 @@
         }
 
         button:hover {
-            background-color: #15763e;
+            background-color: #ffffff;
+            color: #0b0c0c;
+            font-weight: bolder;
         }
 
         .social-icons {
@@ -76,12 +100,13 @@
         }
 
         .social-icon:hover {
-            color: #15763e;
+            color: #ffffff;
         }
 
         footer {
-            background-color: #0e7d10;
-            color: white;
+            background-color: white;
+            opacity: .8;
+            color: black;
             text-align: center;
             padding: 1em;
             position: fixed;
@@ -96,8 +121,7 @@
     <header>
         <h1>Contact Form</h1>
     </header>
-
-    <section>
+    <section class="glass-container">
         <h2>Get in Touch</h2>
         <p>If you have any questions or inquiries, please use the contact form below:</p>
 
@@ -115,9 +139,12 @@
         </form>
 
         <div class="social-icons">
-            <a href="https://www.facebook.com/croprecognition" class="social-icon" title="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com/croprecognition" class="social-icon" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/company/croprecognition" class="social-icon" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/croprecognition" class="social-icon" title="Facebook" target="_blank"><i
+                    class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/croprecognition" class="social-icon" title="Twitter" target="_blank"><i
+                    class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/croprecognition" class="social-icon" title="LinkedIn"
+                target="_blank"><i class="fab fa-linkedin"></i></a>
             <!-- Add more social media links as needed -->
         </div>
     </section>
