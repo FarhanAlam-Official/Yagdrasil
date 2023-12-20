@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Contact Crop Recognition System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0e7d10;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            max-width: 500px;
+            margin: 2em auto;
+            padding: 2em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            display: grid;
+            gap: 1em;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.5em;
+            margin-top: 0.5em;
+        }
+
+        button {
+            padding: 0.5em 1em;
+            background-color:#0b0c0c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 1em;
+        }
+
+        button:hover {
+            background-color: #15763e;
+        }
+
+        .social-icons {
+            margin-top: 2em;
+            text-align: center;
+        }
+
+        .social-icon {
+            font-size: 2em;
+            color: #333;
+            text-decoration: none;
+            margin: 0 1em;
+            transition: color 0.3s;
+        }
+
+        .social-icon:hover {
+            color: #15763e;
+        }
+
+        footer {
+            background-color: #0e7d10;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Contact Form</h1>
+    </header>
+
+    <section>
+        <h2>Get in Touch</h2>
+        <p>If you have any questions or inquiries, please use the contact form below:</p>
+
+        <form>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="social-icons">
+            <a href="https://www.facebook.com/croprecognition" class="social-icon" title="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/croprecognition" class="social-icon" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/croprecognition" class="social-icon" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <!-- Add more social media links as needed -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Crop Recognition System</p>
+    </footer>
+</body>
+
+</html>
