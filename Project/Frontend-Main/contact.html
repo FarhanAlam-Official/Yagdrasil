@@ -1,157 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsDelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsDelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <title>Contact Crop Recognition System</title>
     <style>
-        body {
-            background-image: url(/Project/Assets/Background_for_contact.jpg);
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+      body {
+        background-image: url(/Project/Assets/Background_for_contact.jpg);
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
 
-        .glass-container {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            margin-left: 60%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 400px;
-        }
+      .glass-container {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        margin-left: 60%;
+        margin-top: 15%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 400px;
+      }
 
-        header {
-            background-color: whitesmoke;
-            box-shadow: 10px 8px 10px black;
-            opacity: .8;
-            height: 50px;
-            color: rgb(0, 0, 0);
-            box-shadow: #0b0c0c;
-            padding-top: 1px;
-            padding-bottom: 20px;
-            text-align: center;
-        }
+      header {
+        background-color: whitesmoke;
+        box-shadow: 10px 8px 10px black;
+        opacity: 0.8;
+        height: 50px;
+        color: rgb(0, 0, 0);
+        box-shadow: #0b0c0c;
+        padding-top: 1px;
+        padding-bottom: 20px;
+        text-align: center;
+      }
 
-        section {
-            max-width: 500px;
-            margin: 2em auto;
-            padding: 2em;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+      section {
+        max-width: 500px;
+        margin: 2em auto;
+        padding: 2em;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
 
-        h2 {
-            color: #333;
-        }
+      h2 {
+        color: #333;
+      }
 
-        form {
-            display: grid;
-            color: #0b0c0c;
-            gap: 1em;
-        }
+      form {
+        display: grid;
+        color: #0b0c0c;
+        gap: 1em;
+      }
 
-        label {
-            font-weight: bold;
-        }
+      label {
+        font-weight: bold;
+      }
 
-        input,
-        textarea {
-            width: 100%;
-            padding: 0.5em;
-            margin-top: 0.5em;
-        }
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.5em;
+        margin-top: 0.5em;
+      }
 
-        button {
-            padding: 0.5em 1em;
-            background-color: #0b0c0c;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-top: 1em;
-        }
+      button {
+        padding: 0.5em 1em;
+        background-color: #0b0c0c;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 1em;
+      }
 
-        button:hover {
-            background-color: #ffffff;
-            color: #0b0c0c;
-            font-weight: bolder;
-        }
+      button:hover {
+        background-color: #ffffff;
+        color: #0b0c0c;
+        font-weight: bolder;
+      }
 
-        .social-icons {
-            margin-top: 2em;
-            text-align: center;
-        }
+      .social-icons {
+        margin-top: 2em;
+        text-align: center;
+      }
 
-        .social-icon {
-            font-size: 2em;
-            color: #333;
-            text-decoration: none;
-            margin: 0 1em;
-            transition: color 0.3s;
-        }
+      .social-icon {
+        font-size: 2em;
+        color: #333;
+        text-decoration: none;
+        margin: 0 1em;
+        transition: color 0.3s;
+      }
 
-        .social-icon:hover {
-            color: #ffffff;
-        }
+      .social-icon:hover {
+        color: #ffffff;
+      }
 
-        footer {
-            background-color: white;
-            opacity: .8;
-            color: black;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 25px;
-        }
+      footer {
+        background-color: white;
+        opacity: 0.8;
+        color: black;
+        text-align: center;
+        padding: 1em;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 25px;
+      }
+      nav.navbar {
+        position: fixed;
+        top: 0%;
+        width: 100%;
+        opacity: 0.8;
+      }
+
+      nav.navbar a {
+        font-size: 20px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <header>
-        <h1>Contact Form</h1>
-    </header>
-    <section class="glass-container">
-        <h2>Get in Touch</h2>
-        <p>If you have any questions or inquiries, please use the contact form below:</p>
-
-        <form>
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-
-            <button type="submit">Send Message</button>
-        </form>
-
-        <div class="social-icons">
-            <a href="https://www.facebook.com/croprecognition" class="social-icon" title="Facebook" target="_blank"><i
-                    class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com/croprecognition" class="social-icon" title="Twitter" target="_blank"><i
-                    class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/company/croprecognition" class="social-icon" title="LinkedIn"
-                target="_blank"><i class="fab fa-linkedin"></i></a>
-            <!-- Add more social media links as needed -->
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light"
+      style="
+        position: absolute;
+        color: black;
+        padding-top: 0px;
+        padding-left: 0px;
+      "
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="/Project/Assets/logo image.avif"
+            alt="Logo"
+            width="60"
+            height="60"
+            class="d-inline-block align-top"
+            style="background-color: transparent"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="features.html">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pricing.html">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li><h1>Contact Form</h1></li>
+          </ul>
         </div>
+      </div>
+    </nav>
+    <section class="glass-container">
+      <h2>Get in Touch</h2>
+      <p>
+        If you have any questions or inquiries, please use the contact form
+        below:
+      </p>
+
+      <form>
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="social-icons">
+        <a
+          href="https://www.facebook.com/croprecognition"
+          class="social-icon"
+          title="Facebook"
+          target="_blank"
+          ><i class="fab fa-facebook"></i
+        ></a>
+        <a
+          href="https://twitter.com/croprecognition"
+          class="social-icon"
+          title="Twitter"
+          target="_blank"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/company/croprecognition"
+          class="social-icon"
+          title="LinkedIn"
+          target="_blank"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <!-- Add more social media links as needed -->
+      </div>
     </section>
 
     <footer>
-        <p>&copy; 2023 Crop Recognition System</p>
+      <p>&copy; 2023 Crop Recognition System</p>
     </footer>
-</body>
-
+  </body>
 </html>
