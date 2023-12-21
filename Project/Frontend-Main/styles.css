@@ -127,29 +127,16 @@ nav.navbar a {
     top: 2px;
     margin-top: 30px;
 }
- #result {
-            background-color: #f0f0f0;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-  #result p {
-            margin: 0;
-            padding: 5px 0;
-        }
-
-        /* Additional styling for the dynamically added card */
-/* Additional styling for the dynamically added card */
+ /* Additional styling for the dynamically added card */
 #resultCard {
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin-right:10%
-    height: 90%;
+    position: absolute;
+    top: 15%;
+    left: 65%;
+    margin-right: 100px;
+    height: 600px;
     width: 400px;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-    backdrop-filter: blur(10px); /* Blurry effect */
+    background-color: rgba(141, 138, 138, 0.9); /* Semi-transparent white background */
+    backdrop-filter: blur(60%); /* Blurry effect */
     border: 1px solid #ddd;
     border-radius: 0 8px 8px 0; /* Rounded corners on the left side */
     box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1); /* Shadow on the left side */

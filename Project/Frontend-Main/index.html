@@ -54,6 +54,15 @@
                 <button type="submit">Upload Image</button>
             </form>
         </section>
+        <div id="resultCard">
+          <div class="card-body" id="resultcard">
+            <h5 class="card-title">Crop Details</h5>
+            <p class="card-text">Health Status:Potato (Healthy)</p>
+            <p class="card-text">Accuracy: 100%</p>
+            <!-- Add additional information for healthy potato if needed -->
+        </div>
+        </div>
+        
     </main>
     <footer>
         <p>&copy; 2023 Crop Recognition System. All rights reserved.</p>
@@ -61,6 +70,7 @@
   <script>
      document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('uploadform');
+    const ctaSection = document.querySelector('.cta');
 
     // Create a card element
     const resultCard = document.createElement('div');
@@ -89,7 +99,10 @@
         .then(response => response.json())
         .then(data => {
             const formattedConfidence = (data.confidence * 100).toFixed(2);
-
+            // Remove the cta section
+            if (ctaSection) {
+              ctaSection.parentNode.removeChild(ctaSection);
+          }
             // Update the card content based on the class data
             let cardContent = '';
             switch (data.class) {
