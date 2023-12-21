@@ -134,7 +134,54 @@ nav.navbar a {
             margin-top: 20px;
         }
 
-        #result p {
+  #result p {
             margin: 0;
             padding: 5px 0;
         }
+
+        /* Additional styling for the dynamically added card */
+/* Additional styling for the dynamically added card */
+#resultCard {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-right:10%
+    height: 90%;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Blurry effect */
+    border: 1px solid #ddd;
+    border-radius: 0 8px 8px 0; /* Rounded corners on the left side */
+    box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1); /* Shadow on the left side */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out; /* Add smooth transition */
+}
+
+#resultCard .card-body {
+    margin: 0;
+}
+
+#resultCard h5.card-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#resultCard p.card-text {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+#resultCard button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#resultCard button:hover {
+    background-color: #0056b3;
+}

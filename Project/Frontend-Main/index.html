@@ -55,44 +55,101 @@
             </form>
         </section>
     </main>
- <div id="result">
-        <!-- This is where the result will be displayed -->
-    </div>
     <footer>
         <p>&copy; 2023 Crop Recognition System. All rights reserved.</p>
     </footer>
-<script>
+  <script>
+     document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('uploadform');
 
-const form = document.getElementById('uploadform');
+    // Create a card element
+    const resultCard = document.createElement('div');
+    resultCard.id = 'resultCard';
+    resultCard.className = 'card';
+    resultCard.style.display = 'none'; // Initially hide the card
+    document.body.appendChild(resultCard); // Append the card to the body
 
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    // Create payload as new FormData object:
-    const payload = new FormData(form);
-    const file  = document.querySelector("#img");
-    payload.append('file',file.files[0]);
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const payload = new FormData(form);
+        const file = document.querySelector("#img");
 
-    for (items of payload){
-    console.log(items[0])
-    }
-    // Post the payload using Fetch:
-    fetch('http://localhost:8000/predict', {
-    method: 'POST',
-    body: payload
-    })
-    .then(response => response.json())
-        .then(data => {
-         const formattedConfidence = data.confidence.toFixed(2)*100;
-            // Display the result in the "result" div
-            document.getElementById('result').innerHTML = `
-                <p>Class: ${data.class}</p>
-                <p>Confidence: ${formattedConfidence}</p>
-            `;
+        if (file.files.length > 0) {
+            payload.append('file', file.files[0]);
+        }
+
+        payload.forEach((value, key) => {
+            console.log(key, value);
+        });
+
+        fetch('http://localhost:8000/predict', {
+            method: 'POST',
+            body: payload
         })
-})
+        .then(response => response.json())
+        .then(data => {
+            const formattedConfidence = (data.confidence * 100).toFixed(2);
 
-</script>
+            // Update the card content based on the class data
+            let cardContent = '';
+            switch (data.class) {
+                case 'Potato___healthy':
+                    cardContent = `
+                        <div class="card-body">
+                            <h5 class="card-title">Crop Details</h5>
+                            <p class="card-text">Health Status:Potato (Healthy)</p>
+                            <p class="card-text">Accuracy: ${formattedConfidence}%</p>
+                            <!-- Add additional information for healthy potato if needed -->
+                        </div>
+                    `;
+                    break;
 
+                case 'Potato___Late_blight':
+                    cardContent = `
+                        <div class="card-body">
+                            <h5 class="card-title">Crop Details</h5>
+                            <p class="card-text">Health Status:Potato (Late Blight)</p>
+                            <p class="card-text">Accuracy: ${formattedConfidence}%</p>
+                            <!-- Add additional information for potato with late blight if needed -->
+                        </div>
+                    `;
+                    break;
+
+                case 'Potato___Early_blight':
+                    cardContent = `
+                        <div class="card-body">
+                            <h5 class="card-title">Crop Details</h5>
+                            <p class="card-text">Health Status:Potato (Early Blight)</p>
+                            <p class="card-text">Accuracy: ${formattedConfidence}%</p>
+                            <!-- Add additional information for potato with early blight if needed -->
+                        </div>
+                    `;
+                    break;
+
+                default:
+                    cardContent = `
+                        <div class="card-body">
+                            <h5 class="card-title">Crop Details</h5>
+                            <p class="card-text">Class: ${data.class}</p>
+                            <p class="card-text">Accuracy: ${formattedConfidence}%</p>
+                        </div>
+                    `;
+            }
+
+            // Update the card content
+            resultCard.innerHTML = cardContent;
+
+            // Show the card
+            resultCard.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle errors, show a message to the user, etc.
+        });
+    });
+});
+
+  </script>
 </body>
 </html>
 
