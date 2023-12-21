@@ -1,30 +1,63 @@
 <!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="https://cdn.jsDelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsDelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsDelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsDelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <title>Crop Recognition System</title>
-
-</head>
-<body>
+  </head>
+  <body>
     <main>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: absolute; color: black; padding-top: 0px; padding-left: 0px;">
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light"
+        style="
+          position: absolute;
+          color: black;
+          padding-top: 0px;
+          padding-left: 0px;
+        "
+      >
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="/Project/Assets/logo image.avif" alt="Logo" width="60" height="60"  class="d-inline-block align-top" style="background-color: transparent;" />
-        </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <img
+              src="/Project/Assets/logo image.avif"
+              alt="Logo"
+              width="60"
+              height="60"
+              class="d-inline-block align-top"
+              style="background-color: transparent"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="features.html">Features</a>
@@ -42,127 +75,201 @@
           </div>
         </div>
       </nav>
-        <section class="cta glass-container">
-          <div style="padding-top: 0px;">
-            <h1 class="main-head">Identify Your Crop</h1>
-            <p>Upload an image of your crop to get detailed information</p>
-          </div>  
-            <form id="uploadform">
-
-                <input type="file" name="file" accept="image/*" required id="img">
-
-                <button type="submit">Upload Image</button>
-            </form>
-        </section>
-        <div id="resultCard">
-          <div class="card-body" id="resultcard">
-            <h5 class="card-title">Crop Details</h5>
-            <p class="card-text">Health Status:Potato (Healthy)</p>
-            <p class="card-text">Accuracy: 100%</p>
-            <!-- Add additional information for healthy potato if needed -->
+      <section class="cta glass-container">
+        <div style="padding-top: 0px">
+          <h1 class="main-head">Identify Your Crop</h1>
+          <p>Upload an image of your crop to get detailed information</p>
         </div>
-        </div>
-        
+        <form id="uploadform">
+          <input type="file" name="file" accept="image/*" required id="img" />
+
+          <button type="submit">Upload Image</button>
+        </form>
+      </section>
     </main>
     <footer>
-        <p>&copy; 2023 Crop Recognition System. All rights reserved.</p>
+      <p>&copy; 2023 Crop Recognition System. All rights reserved.</p>
     </footer>
-  <script>
-     document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('uploadform');
-    const ctaSection = document.querySelector('.cta');
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("uploadform");
+        const ctaSection = document.querySelector(".cta");
 
-    // Create a card element
-    const resultCard = document.createElement('div');
-    resultCard.id = 'resultCard';
-    resultCard.className = 'card';
-    resultCard.style.display = 'none'; // Initially hide the card
-    document.body.appendChild(resultCard); // Append the card to the body
+        // Create a card element
+        const resultCard = document.createElement("div");
+        resultCard.id = "resultCard";
+        resultCard.className = "card";
+        resultCard.style.display = "none"; // Initially hide the card
+        document.body.appendChild(resultCard); // Append the card to the body
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const payload = new FormData(form);
-        const file = document.querySelector("#img");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const payload = new FormData(form);
+          const file = document.querySelector("#img");
 
-        if (file.files.length > 0) {
-            payload.append('file', file.files[0]);
-        }
-
-        payload.forEach((value, key) => {
-            console.log(key, value);
-        });
-
-        fetch('http://localhost:8000/predict', {
-            method: 'POST',
-            body: payload
-        })
-        .then(response => response.json())
-        .then(data => {
-            const formattedConfidence = (data.confidence * 100).toFixed(2);
-            // Remove the cta section
-            if (ctaSection) {
-              ctaSection.parentNode.removeChild(ctaSection);
+          if (file.files.length > 0) {
+            payload.append("file", file.files[0]);
           }
-            // Update the card content based on the class data
-            let cardContent = '';
-            switch (data.class) {
-                case 'Potato___healthy':
-                    cardContent = `
-                        <div class="card-body">
-                            <h5 class="card-title">Crop Details</h5>
-                            <p class="card-text">Health Status:Potato (Healthy)</p>
-                            <p class="card-text">Accuracy: ${formattedConfidence}%</p>
-                            <!-- Add additional information for healthy potato if needed -->
-                        </div>
-                    `;
-                    break;
 
-                case 'Potato___Late_blight':
-                    cardContent = `
-                        <div class="card-body">
-                            <h5 class="card-title">Crop Details</h5>
-                            <p class="card-text">Health Status:Potato (Late Blight)</p>
-                            <p class="card-text">Accuracy: ${formattedConfidence}%</p>
-                            <!-- Add additional information for potato with late blight if needed -->
-                        </div>
-                    `;
-                    break;
+          payload.forEach((value, key) => {
+            console.log(key, value);
+          });
 
-                case 'Potato___Early_blight':
-                    cardContent = `
-                        <div class="card-body">
-                            <h5 class="card-title">Crop Details</h5>
-                            <p class="card-text">Health Status:Potato (Early Blight)</p>
-                            <p class="card-text">Accuracy: ${formattedConfidence}%</p>
-                            <!-- Add additional information for potato with early blight if needed -->
-                        </div>
+          fetch("http://localhost:8000/predict", {
+            method: "POST",
+            body: payload,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const formattedConfidence = (data.confidence * 100).toFixed(2);
+              // Remove the cta section
+              if (ctaSection) {
+                ctaSection.parentNode.removeChild(ctaSection);
+              }
+              // Update the card content based on the class data
+              let cardContent = "";
+              switch (data.class) {
+                case "Potato___healthy":
+                  cardContent = `
+                    <div class="card-body">
+                      <h1 class="card-title">Crop Details</h1>
+                      <p class="card-text">Health Status:Potato (Healthy)</p>
+          
+            <!-- Point 1: Preventive Measures -->
+            <div class="card-text">
+              <span class="mintitle">Prevention:</span>
+              <p class="p_content">Good hygiene, avoid overhead watering, and provide spacing to reduce humidity.</p>
+          </div>
+          
+          <!-- Point 2: Communicability -->
+          <div class="card-text">
+              <span class="mintitle">Spread:</span>
+              <p class="p_content">Highly communicable; isolate infected plants.</p>
+          </div>
+          
+          <!-- Point 3: Treatment Options -->
+          <div class="card-text">
+              <span class="mintitle">Treatments:</span>
+              <p class="p_content">Use chlorothalonil or copper-based fungicides; consider neem oil.</p>
+          </div>
+          
+          <!-- Point 4: Additional Resources -->
+          <div class="card-text">
+              <span class="mintitle">Resources:</span>
+              <p class="p_content"><a href="#">Plant Health Center</a> <br>Consult local agriculture experts.</p>
+          </div>
                     `;
-                    break;
+                  break;
+
+                case "Potato___Late_blight":
+                  cardContent = `
+                  <div class="card-body">
+                    <h1 class="card-title">Crop Details</h1>
+                      <p class="card-text">Health Status:Infected Potato (Late Blight)</p>
+                    <!-- Point 1: Preventive Measures -->
+                    <div class="card-text">
+                        <span class="mintitle">Prevention:</span>
+                        <p class="p_content">Regularly inspect plants, use resistant varieties, and practice crop rotation.</p>
+                    </div>
+                
+                    <!-- Point 2: Communicability -->
+                    <div class="card-text">
+                        <span class="mintitle">Spread:</span>
+                        <p class="p_content">Moderately communicable; remove infected plants promptly.</p>
+                    </div>
+                
+                    <!-- Point 3: Treatment Options -->
+                    <div class="card-text">
+                        <span class="mintitle">Treatments:</span>
+                        <p class="p_content">Apply fungicides containing mancozeb or copper-based solutions; consider cultural practices.</p>
+                    </div>
+                
+                    <!-- Point 4: Additional Resources -->
+                    <div class="card-text">
+                        <span class="mintitle">Resources:</span>
+                        <p class="p_content"><a href="#">Plant Disease Research Center</a> <br>Seek advice from local agricultural extension services.</p>
+                    </div>
+                </div>
+                
+                    `;
+                  break;
+
+                case "Potato___Early_blight":
+                  cardContent = `
+                    <div class="card-body">
+                      <h1 class="card-title">Crop Details</h1>
+                      <p class="card-text">Health Status:Infected Potato (Early Blight)</p>
+          
+            <!-- Point 1: Preventive Measures -->
+            <div class="card-text">
+              <span class="mintitle">Prevention:</span>
+              <p class="p_content">Good hygiene, avoid overhead watering, and provide spacing to reduce humidity.</p>
+          </div>
+          
+          <!-- Point 2: Communicability -->
+          <div class="card-text">
+              <span class="mintitle">Spread:</span>
+              <p class="p_content">Highly communicable; isolate infected plants.</p>
+          </div>
+          
+          <!-- Point 3: Treatment Options -->
+          <div class="card-text">
+              <span class="mintitle">Treatments:</span>
+              <p class="p_content">Use chlorothalonil or copper-based fungicides; consider neem oil.</p>
+          </div>
+          
+          <!-- Point 4: Additional Resources -->
+          <div class="card-text">
+              <span class="mintitle">Resources:</span>
+              <p class="p_content"><a href="#">Plant Health Center</a> <br>Consult local agriculture experts.</p>
+          </div>
+                    `;
+                  break;
 
                 default:
-                    cardContent = `
-                        <div class="card-body">
-                            <h5 class="card-title">Crop Details</h5>
-                            <p class="card-text">Class: ${data.class}</p>
-                            <p class="card-text">Accuracy: ${formattedConfidence}%</p>
-                        </div>
+                  cardContent = `
+                    <div class="card-body">
+                      <h1 class="card-title">Crop Details</h1>
+                      <p class="card-text">Health Status:Potato</p>
+          
+            <!-- Point 1: Preventive Measures -->
+            <div class="card-text">
+              <span class="mintitle">Prevention:</span>
+              
+          </div>
+          
+          <!-- Point 2: Communicability -->
+          <div class="card-text">
+              <span class="mintitle">Spread:</span>
+             
+          </div>
+          
+          <!-- Point 3: Treatment Options -->
+          <div class="card-text">
+              <span class="mintitle">Treatments:</span>
+             
+          </div>
+          
+          <!-- Point 4: Additional Resources -->
+          <div class="card-text">
+              <span class="mintitle">Resources:</span>
+              
+          </div>
                     `;
-            }
+              }
 
-            // Update the card content
-            resultCard.innerHTML = cardContent;
+              // Update the card content
+              resultCard.innerHTML = cardContent;
 
-            // Show the card
-            resultCard.style.display = 'block';
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            // Handle errors, show a message to the user, etc.
+              // Show the card
+              resultCard.style.display = "block";
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              // Handle errors, show a message to the user, etc.
+            });
         });
-    });
-});
-
-  </script>
-</body>
+      });
+    </script>
+  </body>
 </html>
-
