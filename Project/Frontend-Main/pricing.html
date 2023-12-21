@@ -1,116 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsDelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsDelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <title>Crop Recognition System Pricing</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
 
-        header {
-            background-color: #0e7d10;
-            color: white;
-            padding: 1em;
-            text-align: center;
-        }
+      section {
+        background-color: transparent;
+        filter: blur(90%);
+        text-align: center;
+        color: black;
+        font-weight: bolder;
+        max-width: 800px;
+        margin-top: 10%;
+        margin-left: 20%;
+        padding: 2em;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
 
-        section {
-            background-color: transparent;
-    filter: blur(90%);
-    text-align: center;
-    color: black;
-    font-weight: bolder;
-            max-width: 800px;
-            margin: 2em auto;
-            padding: 2em;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+      h2 {
+        color: #333;
+      }
 
-        h2 {
-            color: #333;
-        }
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 1em;
+        margin-bottom: 1em;
+      }
 
-        .card {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 1em;
-            margin-bottom: 1em;
-        }
+      .card h3 {
+        color: #333;
+      }
 
-        .card h3 {
-            color: #333;
-        }
+      .card p {
+        color: #666;
+      }
 
-        .card p {
-            color: #666;
-        }
+      footer {
+        background-color: #5cb85c;
+        color: white;
+        text-align: center;
+        padding: 1em;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+      nav.navbar {
+        background-color: #0e7d10;
+        position: fixed;
+        top: 0%;
+        width: 100%;
+        opacity: 0.8;
+      }
 
-        footer {
-            background-color: #0e7d10;
-            color: white;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+      nav.navbar a {
+        font-size: 20px;
+      }
+      .page {
+        position: fixed;
+        top: 0;
+        right: 0;
+        margin-top: 10px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>Yagdrasil Pricing</h1>
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-success"
+        style="
+          position: absolute;
+          color: black;
+          padding-top: 0px;
+          padding-left: 0px;
+        "
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img
+              src="/Project/Assets/logo image.avif"
+              alt="Logo"
+              width="60"
+              height="60"
+              class="d-inline-block align-top"
+              style="background-color: transparent"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="features.html">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pricing.html">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="page">
+        <h2>Yagdrasil Pricing</h2>
+      </div>
     </header>
 
     <section>
-        <div class="card">
-            <h3>Basic Plan</h3>
-            <p>Perfect for small farms and hobbyists.</p>
-            <p><strong>$19.99/month</strong></p>
-            <ul>
-                <li>Crop Identification</li>
-                <li>Image Processing</li>
-                <li>Basic Support</li>
-            </ul>
-        </div>
+      <div class="card">
+        <h3>Basic Plan</h3>
+        <p>Perfect for small farms and hobbyists.</p>
+        <p><strong>$19.99/month</strong></p>
+        <ul>
+          <li>Crop Identification</li>
+          <li>Image Processing</li>
+          <li>Basic Support</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h3>Pro Plan</h3>
-            <p>Great for medium-sized farms and businesses.</p>
-            <p><strong>$49.99/month</strong></p>
-            <ul>
-                <li>Crop Identification</li>
-                <li>Image Processing</li>
-                <li>Machine Learning</li>
-                <li>Real-time Analysis</li>
-                <li>Priority Support</li>
-            </ul>
-        </div>
+      <div class="card">
+        <h3>Pro Plan</h3>
+        <p>Great for medium-sized farms and businesses.</p>
+        <p><strong>$49.99/month</strong></p>
+        <ul>
+          <li>Crop Identification</li>
+          <li>Image Processing</li>
+          <li>Machine Learning</li>
+          <li>Real-time Analysis</li>
+          <li>Priority Support</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h3>Enterprise Plan</h3>
-            <p>Designed for large-scale agricultural operations.</p>
-            <p><strong>Contact us for a custom quote</strong></p>
-            <ul>
-                <li>All features from Pro Plan</li>
-                <li>Crop Health Monitoring</li>
-                <li>Automated Reporting</li>
-                <li>Custom Integrations</li>
-                <li>Premium Support</li>
-            </ul>
-        </div>
+      <div class="card">
+        <h3>Enterprise Plan</h3>
+        <p>Designed for large-scale agricultural operations.</p>
+        <p><strong>Contact us for a custom quote</strong></p>
+        <ul>
+          <li>All features from Pro Plan</li>
+          <li>Crop Health Monitoring</li>
+          <li>Automated Reporting</li>
+          <li>Custom Integrations</li>
+          <li>Premium Support</li>
+        </ul>
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2023 Crop Recognition System</p>
+    <footer class="bg-success">
+      <p>&copy; 2023 Crop Recognition System</p>
     </footer>
-</body>
-
+  </body>
 </html>
