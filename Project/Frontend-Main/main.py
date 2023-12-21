@@ -8,10 +8,7 @@ import tensorflow as tf
 
 app = FastAPI()
 
-origins = [
-    "http://localhost",
-    "http://localhost:8000",
-]
+origins = ["*"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -27,7 +24,7 @@ async def read_root():
 
 
 # Load the model
-MODEL_PATH = "../Models/1"
+MODEL_PATH = "../../Models/1"
 MODEL = tf.keras.models.load_model(MODEL_PATH)
 
 # Class names
@@ -41,10 +38,6 @@ async def ping():
 
 def read_file_as_image(data) -> np.ndarray:
     image = np.array(Image.open(BytesIO(data)))
-
-    # image = image.resize(256,256)
-    # image_array = np.array(image)
-    # return image_array
 
     return image
 

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <link href="https://cdn.jsDelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsDelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <title>Crop Recognition System</title>
 
 </head>
@@ -46,16 +47,52 @@
             <h1 class="main-head">Identify Your Crop</h1>
             <p>Upload an image of your crop to get detailed information</p>
           </div>  
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="image" accept="image/*" required>
+            <form id="uploadform">
+
+                <input type="file" name="file" accept="image/*" required id="img">
+
                 <button type="submit">Upload Image</button>
             </form>
         </section>
     </main>
-
+ <div id="result">
+        <!-- This is where the result will be displayed -->
+    </div>
     <footer>
         <p>&copy; 2023 Crop Recognition System. All rights reserved.</p>
     </footer>
+<script>
+
+const form = document.getElementById('uploadform');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Create payload as new FormData object:
+    const payload = new FormData(form);
+    const file  = document.querySelector("#img");
+    payload.append('file',file.files[0]);
+
+    for (items of payload){
+    console.log(items[0])
+    }
+    // Post the payload using Fetch:
+    fetch('http://localhost:8000/predict', {
+    method: 'POST',
+    body: payload
+    })
+    .then(response => response.json())
+        .then(data => {
+         const formattedConfidence = data.confidence.toFixed(2)*100;
+            // Display the result in the "result" div
+            document.getElementById('result').innerHTML = `
+                <p>Class: ${data.class}</p>
+                <p>Confidence: ${formattedConfidence}</p>
+            `;
+        })
+})
+
+</script>
+
 </body>
 </html>
 

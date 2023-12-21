@@ -127,3 +127,14 @@ nav.navbar a {
     top: 2px;
     margin-top: 30px;
 }
+ #result {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        #result p {
+            margin: 0;
+            padding: 5px 0;
+        }
